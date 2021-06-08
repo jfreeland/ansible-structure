@@ -1,0 +1,69 @@
+### clusters and children of clusters
+
+## aws
+[clusters/aws:children]
+clusters/aws/www
+clusters/aws/search
+
+# www
+[clusters/aws/www:children]
+clusters/aws/www/dev
+clusters/aws/www/prod
+
+[clusters/aws/www/dev:children]
+clusters/aws/www/dev/us-east-1/cluster1
+
+[clusters/aws/www/prod:children]
+clusters/aws/www/prod/us-east-1/cluster1
+
+# search
+[clusters/aws/search:children]
+clusters/aws/search/dev
+
+[clusters/aws/search/dev:children]
+clusters/aws/search/dev/us-east-1/cluster1
+clusters/aws/search/dev/us-east-1/cluster2
+clusters/aws/search/dev/us-west-2/cluster1
+
+
+## azure
+[clusters/azure:children]
+clusters/azure/www
+
+# www
+[clusters/azure/www:children]
+clusters/azure/www/dev
+clusters/azure/www/prod
+
+[clusters/azure/www/dev:children]
+clusters/azure/www/dev/eus2/cluster1
+
+[clusters/azure/www/prod:children]
+clusters/azure/www/prod/eus2/cluster1
+
+
+## gcp
+[clusters/gcp:children]
+clusters/gcp/www
+
+# www
+[clusters/gcp/www:children]
+clusters/gcp/www/dev
+clusters/gcp/www/prod
+
+[clusters/gcp/www/dev:children]
+clusters/gcp/www/dev/us-east4/cluster1
+
+[clusters/gcp/www/prod:children]
+clusters/gcp/www/prod/us-east4/cluster1
+
+
+
+### services and children of sites
+[service/www:children]
+clusters/aws/www
+clusters/azure/www
+clusters/gcp/www
+
+[service/search:children]
+clusters/aws/search

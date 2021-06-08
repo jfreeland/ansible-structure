@@ -1,0 +1,17 @@
+---
+- name: Print out my variables
+  hosts: all
+  connection: local
+
+  tasks:
+    - name: debug
+      debug:
+        msg:
+          - "host: {{ inventory_hostname }}"
+          - "ADDRESS_DISCOVERY: {{ hostvars[inventory_hostname]['ADDRESS_DISCOVERY'] }}"
+          - "SOME_CLOUD_VARIABLE: {{ hostvars[inventory_hostname]['SOME_CLOUD_VARIABLE'] }}"
+          - "ENVIRONMENT: {{ hostvars[inventory_hostname]['ENVIRONMENT'] }}"
+          - "CLUSTER_NAME: {{ hostvars[inventory_hostname]['CLUSTER_NAME'] }}"
+          - "CLUSTER_REGION: {{ hostvars[inventory_hostname]['CLUSTER_REGION'] }}"
+          - "SERVICE_VAR: {{ hostvars[inventory_hostname]['SERVICE_VAR'] }}"
+          - "SERVICES: {{ hostvars[inventory_hostname]['SERVICES'] }}"

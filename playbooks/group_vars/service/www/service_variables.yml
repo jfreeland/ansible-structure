@@ -1,0 +1,6 @@
+SERVICE_VAR: "www"
+SERVICES: [
+  "www1",
+  "www2",
+  "www3"
+]
