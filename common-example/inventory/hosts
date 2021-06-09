@@ -1,0 +1,87 @@
+### clouds and children of clouds
+
+## aws
+[cloud_aws:children]
+cloud_aws_dev
+cloud_aws_prod
+
+[cloud_aws_dev:children]
+cloud_aws_search_dev
+cloud_aws_www_dev
+
+[cloud_aws_prod:children]
+cloud_aws_www_prod
+
+[cloud_aws_search_dev:children]
+cluster_aws_search_dev_us-east-1_cluster1
+cluster_aws_search_dev_us-east-1_cluster2
+cluster_aws_search_dev_us-west-2_cluster1
+
+[cloud_aws_www_dev:children]
+cluster_aws_www_dev_us-east-1_cluster1
+
+[cloud_aws_www_prod:children]
+cluster_aws_www_prod_us-east-1_cluster1
+
+## azure
+[cloud_azure:children]
+cloud_azure_dev
+cloud_azure_prod
+
+[cloud_azure_dev:children]
+cloud_azure_www_dev
+
+[cloud_azure_prod:children]
+cloud_azure_www_prod
+
+[cloud_azure_www_dev:children]
+cluster_azure_www_dev_eus2_cluster1
+
+[cloud_azure_www_prod:children]
+cluster_azure_www_prod_eus2_cluster1
+
+## gcp
+[cloud_gcp:children]
+cloud_gcp_dev
+cloud_gcp_prod
+
+[cloud_gcp_dev:children]
+cloud_gcp_www_dev
+
+[cloud_gcp_prod:children]
+cloud_gcp_www_prod
+
+[cloud_gcp_www_dev:children]
+cluster_gcp_www_dev_us-east4_cluster1
+
+[cloud_gcp_www_prod:children]
+cluster_gcp_www_prod_us-east4_cluster1
+
+
+### environments
+[env_dev:children]
+cloud_aws_dev
+cloud_azure_dev
+cloud_gcp_dev
+
+[env_prod:children]
+cloud_aws_prod
+cloud_azure_prod
+cloud_gcp_prod
+
+
+### services
+
+# search
+[service_search:children]
+cloud_aws_search_dev
+cloud_aws_search_prod
+
+# www
+[service_www:children]
+cloud_aws_www_dev
+cloud_aws_www_prod
+cloud_azure_www_dev
+cloud_azure_www_prod
+cloud_gcp_www_dev
+cloud_gcp_www_prod

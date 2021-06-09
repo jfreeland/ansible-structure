@@ -1,0 +1,3 @@
+# This is where I might keep cloud-specific configurations for
+# address_discovery.
+ADDRESS_DISCOVERY: "gcp"

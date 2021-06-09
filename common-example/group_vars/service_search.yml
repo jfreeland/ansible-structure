@@ -1,0 +1,6 @@
+SERVICE_VAR: "search"
+SERVICES: [
+  "search1",
+  "search2",
+  "search3"
+]
