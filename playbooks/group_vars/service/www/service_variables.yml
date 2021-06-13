@@ -1,6 +1,8 @@
 SERVICE_VAR: "www"
 
-SERVICES: "{{ SERVICE_DETAILS | map('combine', SERVICE_DEFAULTS) | list }}"
+#SERVICES: "{{ SERVICE_DETAILS | map('combine', SERVICE_DEFAULTS) | list }}"
+service_list: []
+SERVICES: "{% for svc in SERVICE_DETAILS %}{{ service_list.append(SERVICE_DEFAULTS | combine(svc)) }}{% endfor %}{{ service_list }}"
 
 SERVICE_DEFAULTS:
   remark: blah
