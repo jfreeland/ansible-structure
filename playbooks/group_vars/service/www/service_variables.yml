@@ -1,6 +1,13 @@
 SERVICE_VAR: "www"
-SERVICES: [
-  "www1",
-  "www2",
-  "www3"
-]
+
+SERVICES: "{{ SERVICE_DETAILS | map('combine', SERVICE_DEFAULTS) | list }}"
+
+SERVICE_DEFAULTS:
+  remark: blah
+
+SERVICE_DETAILS:
+  - name: test1
+    port: 80
+    remark: fail
+  - name: test2
+    port: 443
